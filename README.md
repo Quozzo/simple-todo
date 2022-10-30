@@ -1,46 +1,19 @@
-# Getting Started with Create React App
+# Simple Todo List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### How long did you spend on your solution?
 
-## Available Scripts
+It took about 3 hours
 
-In the project directory, you can run:
+### How do you build and run your solution?
 
-### `npm start`
+You can start it by running npm start or you can build it by using npm run build to get the files.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### What technical and functional assumptions did you make when implementing your solution?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I took an optimistic update approach so that the UI is updated before any ajax requests are be made. If the ajax request fails then the UI can be rolled back.
+The Todo List takes a SPA approach and is not rendered server side.
+I assume that the list will be fetched from the server on every page refresh and as such it is not saved in localStorage.
 
-### `npm test`
+### Briefly explain your technical design and why do you think is the best approach to this problem.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+I created a React Context which contains all of the todo list items. This allows easy access to manipulate the list from anywhere in the SPA including adding a new item within the NewItem component or toggleing the item to complete/pending with the checkbox inside each todo item. The two groups are also isolated from one another which will make it easy to add additional groups or categories in future should the need arise.
