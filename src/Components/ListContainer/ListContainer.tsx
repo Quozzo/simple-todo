@@ -26,7 +26,7 @@ export function useItemContext() {
 	return useContext(ItemContext)
 }
 
-export function ListContainer({ children }: { children: JSX.Element[] }) {
+export function ListContainer({ children }: { children: JSX.Element | JSX.Element[] }) {
 	const [items, dispatchItem] = useReducer(itemReducer, itemsDefaultData)
 
 	//The dispatch
